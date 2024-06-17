@@ -14,18 +14,18 @@ pipeline {
         stage('Getting repo') {
             steps {
                 echo 'clone the repo'
-                sh 'rm -fr MLOps_task3'
+                sh 'rm -fr thirdagain'
                 sh 'rm -fr requirements.txt'
-                sh 'git clone https://github.com/KatriTaratuta/MLOps_task3.git'
+                sh 'git clone https://github.com/KatriTaratuta/thirdagain.git'
             }
         }
         stage('Build') {
             steps {
                 echo 'stage 2 here'
-                sh 'python3 -m pip freeze > ./3mlops/requirements.txt'
-                sh 'python3 -m pip install -r ./3mlops/requirements.txt'
-                sh 'chmod u+x ./MLOps_task3/pipeline.sh'
-                sh './MLOps_task3/pipeline.sh'
+                sh 'python3 -m pip freeze > ./thirdagain/requirements.txt'
+                sh 'python3 -m pip install -r ./thirdagain/requirements.txt'
+                sh 'chmod u+x ./thirdagain/pipeline.sh'
+                sh './thirdagain/pipeline.sh'
             }
         }
     }
