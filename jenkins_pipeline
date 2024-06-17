@@ -30,36 +30,3 @@ pipeline {
         }
     }
 }
-=======
-#!/usr/bin/env groovy
-
-pipeline {
-    agent any
-    stages {
-        stage('Informing') {
-            steps {
-                echo '--- Environment info ---'
-                sh 'python3 --version'
-                sh 'python3 -m pip --version'
-            }
-        }
-        stage('Getting repo') {
-            steps {
-                echo 'clone the repo'
-                sh 'rm -fr MLOps_task3'
-                sh 'rm -fr requirements.txt'
-                sh 'git clone https://github.com/KatriTaratuta/MLOps_task3.git'
-            }
-        }
-        stage('Build') {
-            steps {
-                echo 'stage 2 here'
-                sh 'python3 -m pip freeze > ./MLOps_task3/requirements.txt'
-                sh 'python3 -m pip install -r ./MLOps_task3/requirements.txt'
-                sh 'chmod u+x ./MLOps_task3/pipeline.sh'
-                sh './MLOps_task3/pipeline.sh'
-            }
-        }
-    }
-}
->>>>>>> 30a001a3e78efac7731e7bb5f72d6b90510f48e0
